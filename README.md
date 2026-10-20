@@ -22,6 +22,7 @@ Then open <http://localhost:8000>.
 | `assets/style.css`  | All styling; theme tokens live at the top            |
 | `assets/main.js`    | Theme toggle + footer year                           |
 | `.nojekyll`         | Tells Pages to skip Jekyll processing                |
+| `CNAME`             | Claims the custom domain for this repo               |
 
 All asset paths are **relative** (`assets/style.css`, not `/assets/style.css`).
 That is deliberate — it keeps the site working whether it is served from a
@@ -41,26 +42,49 @@ Then in the repo: **Settings → Pages → Source: Deploy from a branch →
 
 ## Custom domain
 
-`rashmipokharel247.com.np` currently resolves to `185.27.134.229`, which is
-not GitHub Pages — the apex is served by other hosting. So a GitHub project
-site **cannot** appear at `rashmipokharel247.com.np/portfolio` while that
-remains true. Two ways forward:
+This repo serves the apex domain **rashmipokharel247.com.np** — the `CNAME`
+file in the repo root claims it. A project repo is allowed to hold an apex
+domain; it then serves at the domain root rather than at `/portfolio`.
 
-**A. Subdomain** (leaves the existing apex site alone)
+### Migration plan
 
-1. Create the file `CNAME` in this repo containing one line:
-   `portfolio.rashmipokharel247.com.np`
-2. At register.com.np → Manage DNS, add:
-   `CNAME` · host `portfolio` · value `rashmicodewing.github.io.` · TTL 3600
-3. Settings → Pages → Custom domain → same hostname → tick **Enforce HTTPS**
-   once DNS resolves.
+The domain currently points at ByetHost (`ns1.byet.org` / `ns2.byet.org`,
+apex `A` = `185.27.134.229`). GitHub Pages does not provide nameservers, so
+the zone has to move to a DNS host and GitHub's `A` records go in there.
 
-**B. Move the apex to GitHub Pages** (replaces the current site)
+1. **Back up the old ByetHost site** — files and database — before anything
+   else. Do not delete the account yet.
+2. Add the domain at Cloudflare (free). It assigns two nameservers of the
+   form `<word>.ns.cloudflare.com`.
+3. In Cloudflare, create the records below, all set to **DNS only** (grey
+   cloud — a proxied record blocks GitHub's certificate issuance):
 
-1. Create a repo named exactly `rashmicodewing.github.io` and put the apex
-   site in it, with a `CNAME` file containing `rashmipokharel247.com.np`.
-2. At register.com.np, replace the `A` record for `@` with the four GitHub
-   Pages addresses: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`,
-   `185.199.111.153`. Point `www` at `rashmicodewing.github.io.` via CNAME.
-3. This repo then becomes reachable at `rashmipokharel247.com.np/portfolio`
-   automatically — no CNAME file needed here.
+   ```
+   A      @     185.199.108.153
+   A      @     185.199.109.153
+   A      @     185.199.110.153
+   A      @     185.199.111.153
+   CNAME  www   rashmicodewing.github.io.
+   ```
+
+4. Push this repo and enable Pages (`main` / `/ (root)`). Settings → Pages
+   → Custom domain should already read `rashmipokharel247.com.np` from the
+   `CNAME` file.
+5. At register.com.np, replace the two nameservers with the Cloudflare pair.
+   `.np` NS changes can take 24-48 hours and are sometimes processed by hand.
+
+   Check progress with:
+
+   ```bash
+   nslookup -type=ns rashmipokharel247.com.np 8.8.8.8
+   ```
+
+6. Once it resolves to GitHub, tick **Enforce HTTPS** in Pages settings.
+7. Only now delete the old site and close the ByetHost account.
+
+### Notes
+
+- The domain has no `MX` or `TXT` records today, so no email breaks in the
+  move. If email is added later it must be recreated at the new DNS host.
+- Keep the ByetHost account alive until step 6 passes, so a rollback is
+  possible if the nameserver change is rejected or delayed.
