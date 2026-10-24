@@ -27,7 +27,7 @@ export const profile = {
 /** Leave a url empty to hide that link until you have one. */
 export const socials: Link[] = [
   { label: 'GitHub', url: 'https://github.com/rashmicodewing' },
-  { label: 'LinkedIn', url: '' }, // <- add your profile URL here
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/rashmi-pokharel-3b5492185' },
 ]
 
 export const about = {
