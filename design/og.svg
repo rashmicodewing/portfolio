@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b6bff"/>
+      <stop offset="1" stop-color="#45b4ff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0" r="0.8">
+      <stop offset="0" stop-color="#8b6bff" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#8b6bff" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#08080a"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="430" fill="url(#glow)"/>
+
+  <rect x="80" y="74" width="72" height="72" rx="18" fill="#121217" stroke="#8b6bff" stroke-opacity="0.45" stroke-width="2"/>
+  <text x="116" y="121" text-anchor="middle" font-family="Consolas, monospace" font-size="29" font-weight="700" fill="url(#accent)">RP</text>
+
+  <text x="178" y="121" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="600" fill="#ececf1">Rashmi Pokharel</text>
+
+  <text x="80" y="275" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="700" fill="#ececf1" letter-spacing="-1.5">Building Reliable Web</text>
+  <text x="80" y="352" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="700" fill="url(#accent)" letter-spacing="-1.5">Experiences &amp; Payment</text>
+  <text x="80" y="429" font-family="Segoe UI, Arial, sans-serif" font-size="62" font-weight="700" fill="url(#accent)" letter-spacing="-1.5">Integrations.</text>
+
+  <text x="80" y="508" font-family="Consolas, monospace" font-size="24" fill="#9b9bab">Software Developer &#183; Nepal</text>
+
+  <g transform="translate(80, 556)">
+    <rect x="0" y="0" width="136" height="38" rx="19" fill="#121217" stroke="#22222b"/>
+    <text x="68" y="25" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#9b9bab">WordPress</text>
+    <rect x="148" y="0" width="74" height="38" rx="19" fill="#121217" stroke="#22222b"/>
+    <text x="185" y="25" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#9b9bab">PHP</text>
+    <rect x="234" y="0" width="170" height="38" rx="19" fill="#121217" stroke="#22222b"/>
+    <text x="319" y="25" text-anchor="middle" font-family="Consolas, monospace" font-size="16" fill="#9b9bab">Payment APIs</text>
+  </g>
+
+  <g opacity="0.9">
+    <rect x="905" y="250" width="200" height="64" rx="12" fill="#121217" stroke="#2f2f3a"/>
+    <text x="1005" y="288" text-anchor="middle" font-family="Consolas, monospace" font-size="18" fill="#8b6bff">PayLexer</text>
+    <line x1="1005" y1="200" x2="1005" y2="244" stroke="#2f2f3a" stroke-width="2" stroke-dasharray="5 7"/>
+    <line x1="1005" y1="320" x2="1005" y2="364" stroke="#8b6bff" stroke-width="2" stroke-dasharray="5 7"/>
+    <rect x="925" y="152" width="160" height="48" rx="10" fill="#0e0e12" stroke="#22222b"/>
+    <text x="1005" y="182" text-anchor="middle" font-family="Consolas, monospace" font-size="15" fill="#6c6c7c">Merchant</text>
+    <rect x="925" y="364" width="160" height="48" rx="10" fill="#0e0e12" stroke="#22222b"/>
+    <text x="1005" y="394" text-anchor="middle" font-family="Consolas, monospace" font-size="15" fill="#6c6c7c">Gateway</text>
+  </g>
+
+  <rect x="0" y="624" width="1200" height="6" fill="url(#accent)"/>
+</svg>

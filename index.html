@@ -1,84 +1,107 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rashmi Pokharel</title>
-<meta name="description" content="WordPress developer based in Nepal. Plugins, themes, and the occasional core patch.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#127758;</text></svg>">
-<link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<header class="bar">
-  <a class="brand" href="./">rashmi<span>.</span></a>
-  <nav>
-    <a href="#work">Work</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <button id="theme" type="button" aria-label="Toggle colour theme">&#9789;</button>
-  </nav>
-</header>
+    <title>Rashmi Pokharel — Software Developer | WordPress &amp; Payment Integrations</title>
+    <meta
+      name="description"
+      content="Software Developer from Nepal building WordPress themes and plugins and integrating payment gateways. Work on PayLexer, Elementor integrations, and WordPress product engineering."
+    />
+    <meta name="author" content="Rashmi Pokharel" />
+    <link rel="canonical" href="https://rashmipokharel247.com.np/" />
 
-<main>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rashmi Pokharel" />
+    <meta property="og:url" content="https://rashmipokharel247.com.np/" />
+    <meta
+      property="og:title"
+      content="Rashmi Pokharel — Software Developer | WordPress &amp; Payment Integrations"
+    />
+    <meta
+      property="og:description"
+      content="Building WordPress products and payment gateway integrations. Selected work, experience and technical skills."
+    />
+    <meta property="og:image" content="https://rashmipokharel247.com.np/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rashmi Pokharel — Software Developer" />
 
-  <section class="hero">
-    <p class="kicker">Kathmandu, Nepal</p>
-    <h1>I build things for WordPress.</h1>
-    <p class="lede">
-      Plugin and theme development, performance work, and travel-booking
-      systems. Currently focused on WP Travel Engine.
-    </p>
-    <p class="actions">
-      <a class="btn" href="#work">See the work</a>
-      <a class="btn ghost" href="#contact">Get in touch</a>
-    </p>
-  </section>
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Rashmi Pokharel — Software Developer"
+    />
+    <meta
+      name="twitter:description"
+      content="Building WordPress products and payment gateway integrations."
+    />
+    <meta name="twitter:image" content="https://rashmipokharel247.com.np/og.png" />
 
-  <section id="work">
-    <h2>Selected work</h2>
-    <ul class="cards">
-      <li class="card">
-        <h3>Project one</h3>
-        <p>One or two sentences on what it does and what you contributed.</p>
-        <p class="meta">PHP &middot; WordPress &middot; React</p>
-      </li>
-      <li class="card">
-        <h3>Project two</h3>
-        <p>One or two sentences on what it does and what you contributed.</p>
-        <p class="meta">PHP &middot; REST API</p>
-      </li>
-      <li class="card">
-        <h3>Project three</h3>
-        <p>One or two sentences on what it does and what you contributed.</p>
-        <p class="meta">JavaScript &middot; Gutenberg</p>
-      </li>
-    </ul>
-  </section>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="theme-color" content="#08080a" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#fbfbfc" media="(prefers-color-scheme: light)" />
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      Replace this with a short paragraph about yourself &mdash; what you work
-      on, what you care about, and what you are looking for next. Two or three
-      sentences is plenty.
-    </p>
-  </section>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>
-      Email <a href="mailto:rashmi@codewing.co">rashmi@codewing.co</a>
-      or find me on <a href="https://github.com/rashmicodewing" rel="me">GitHub</a>.
-    </p>
-  </section>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Rashmi Pokharel",
+        "jobTitle": "Software Developer",
+        "url": "https://rashmipokharel247.com.np/",
+        "address": { "@type": "PostalAddress", "addressCountry": "NP" },
+        "knowsAbout": [
+          "WordPress development",
+          "PHP",
+          "Payment gateway integration",
+          "REST APIs",
+          "Elementor"
+        ],
+        "sameAs": ["https://github.com/rashmicodewing"]
+      }
+    </script>
 
-</main>
-
-<footer class="bar">
-  <p>&copy; <span id="year">2026</span> Rashmi Pokharel</p>
-</footer>
-
-<script src="assets/main.js"></script>
-</body>
+    <!--
+      Set the theme before first paint so there is never a flash of the wrong
+      one. Light is the default; dark is opt-in via the header toggle.
+      Mirrors resolveTheme() in src/lib/useTheme.ts - change both together.
+    -->
+    <script>
+      (function () {
+        var dark = false
+        try {
+          dark = localStorage.getItem('theme') === 'dark'
+        } catch (e) {
+          /* storage blocked - keep the default */
+        }
+        document.documentElement.classList.toggle('dark', dark)
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: system-ui, sans-serif">
+        <h1>Rashmi Pokharel</h1>
+        <p>
+          Software Developer from Nepal, building WordPress themes and plugins and
+          integrating payment gateways. This site needs JavaScript to render —
+          you can reach me at
+          <a href="mailto:rashmipokharel247@gmail.com">rashmipokharel247@gmail.com</a>.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

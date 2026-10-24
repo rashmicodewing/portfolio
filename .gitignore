@@ -10,3 +10,15 @@ desktop.ini
 
 # Logs / scratch
 *.log
+
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# Verification screenshots
+.verify-shots/
+
+# TypeScript incremental build cache
+*.tsbuildinfo
